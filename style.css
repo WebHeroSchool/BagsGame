@@ -1,0 +1,88 @@
+.body {
+  margin: 0;
+  background: no-repeat url(img/Background.png);
+  background-size: cover;
+}
+
+.wrapper {
+  width: 88%;
+  margin: auto;
+  padding-top: 8.958vw;
+  padding-bottom: 13.889vw;
+}
+
+.main__title {
+  color: #fff;
+  font: bold 3.958vw/4.653vw robotobold, arial, helvetica, sans-serif;
+  margin: 0 0 0.556vw 0;
+}
+
+.main__subtitle {
+  color: #fff;
+  display: inline-block;
+  font: bold 1.319vw/1.528vw robotobold, arial, helvetica, sans-serif;
+  margin: 0 0 4.167vw 0;
+}
+
+.main__subtitle_little-font {
+  font: 1.319vw/1.528vw roboto, arial, helvetica, sans-serif;
+}
+
+.main__level {
+  color: #fff;
+  text-decoration: none;
+  font: bold 3.472vw/4.097vw robotobold, arial, helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1.667vw 2.778vw;
+}
+
+.main__hard {
+  margin-bottom: 8.750vw;
+}
+
+.main__hard:hover,
+.main__middle:hover,
+.main__light:hover {
+  background: no-repeat url(img/Rectangle2.png);
+  background-position: left 38%;
+}
+
+.main__btn {
+  color: #fff;
+  font: bold 2.222vw/2.569vw robotobold, arial, helvetica, sans-serif;
+  padding: 2.014vw 5.903vw;
+  background-color: #d62b2e;
+  text-decoration: none;
+  border-radius: 7px;
+  position: relative;
+  box-shadow: 1px 12px 10px 0px #00000059;
+  transition: all 500ms ease;
+}
+
+.main__btn:hover {
+  opacity: 0.8;
+
+}
+
+.card-wrap__card{
+  position: absolute;
+  background: no-repeat url(img/card1.png);
+  background-size: contain;
+  width: 15.139vw;
+  height: 23.681vw;
+  top: 34.722vw;
+  left: 55.556vw;
+  transform: rotate(11.9deg);
+}
+
+.card-wrap__card_up{
+  transform: rotate(28.26deg);
+  top: -1.736vw;
+  left: 81%;
+  transition: transform 0.3s ease-out; 
+}
+
+.card-wrap__card_up:hover{
+  transform: rotate(19.26deg);
+}
