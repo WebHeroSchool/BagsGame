@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +10,18 @@
 </head>
 <body class="body">
   <div class="wrapper">
-    <section class="main">
+    <section id="section" class="main">
       <h1 class="main__title">Выберите уровень сложности:</h1>
       <h2 class="main__subtitle">Выберите сложность и игра начнется.</h2>
       <p class="main__subtitle main__subtitle_little-font">Чем выше уровень - тем больше будет выборка карт.</p>
-      <a href="#" class="main__level main__light">Простой</a>
-      <a href="#" class="main__level main__middle">Средний</a>
-      <a href="#" class="main__level main__hard">Сложный</a>
-      <a href="#" class="main__btn">Начать игру</a>
-      <div class="card-wrap__card">
-      <div class="card-wrap__card card-wrap__card_up">
+      <a id="light" class="main__level main__light">Простой</a>
+      <a id="middle" class="main__level main__middle">Средний</a>
+      <a id="hard"  class="main__level main__hard">Сложный</a>
+      <a id="button" class="main__btn">Начать игру</a>
+        <div class="card-wrap__card">
+        <div class="card-wrap__card card-wrap__card_up"></div></div>
     </section>
+    <div id="card-game" class="card-game"></div>
   </div>
   <script src="script.js"></script>
 </body>

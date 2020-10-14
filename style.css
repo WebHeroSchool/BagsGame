@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 0 1.667vw 2.778vw;
+  cursor: pointer;
 }
 
 .main__hard {
@@ -44,8 +45,7 @@
 .main__hard:hover,
 .main__middle:hover,
 .main__light:hover {
-  background: no-repeat url(img/Rectangle2.png);
-  background-position: left 38%;
+  background: no-repeat left 38% url(img/Rectangle2.png);
 }
 
 .main__btn {
@@ -56,7 +56,7 @@
   text-decoration: none;
   border-radius: 7px;
   position: relative;
-  box-shadow: 1px 12px 10px 0px #00000059;
+  box-shadow: 1px 12px 10px 0 #00000059;
   transition: all 500ms ease;
 }
 
@@ -85,4 +85,44 @@
 
 .card-wrap__card_up:hover{
   transform: rotate(19.26deg);
+}
+
+/*  cards */
+
+.card-game {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card {
+  background-color: transparent;
+  width: 218px;
+  height: 341px;
+  perspective: 1000px;
+  position: relative;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card__front, .card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card__front {
+  background: no-repeat url(img/card1.png);
+}
+
+.card__bag {
+  background: url(img/bagCard.png);
+  transform: rotateY(180deg);
+}
+
+.card__game-over {
+  background: url(img/GameOver.png);
+  transform: rotateY(180deg);
 }
