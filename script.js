@@ -31,7 +31,7 @@ console.log(cardRandom());
 // Создание карты
 let cardWrap = document.getElementById('card-game');
 
-for (let i = 0; i < 9; i++) {
+for (let i = 0; i < cardsNumber; i++) {
 
     let card = document.createElement("div");
     card.classList.add("card");
