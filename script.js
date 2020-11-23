@@ -1,75 +1,87 @@
 
-let levelLight = document.getElementById('light');
-let levelMiddle = document.getElementById('middle');
-let levelHard = document.getElementById('hard');
-let cardsNumber;
+// TODO При перевороте одной карты остальные не переворачивались 
+// todo при перевороте была смена задней стороны карты
 
+const cardWrap = document.querySelector('.card-game');
+const gameStartButton = document.querySelector('.main__btn');
+const levels = document.querySelectorAll('.nav__level');
 
-function clickMenu(light, middle, hard) {
+// *Выбор уровня
+function chooseLevel(event) {
+  levels.forEach((item) => item.classList.remove('level__active'));
+  event.currentTarget.classList.add('level__active');
+};
 
-    light.onclick = () => {
-        cardsNumber = 3;
-    }
+levels.forEach((item) => item.addEventListener('click', chooseLevel));
 
-    middle.onclick = () => {
-        cardsNumber = 6;
-    }
-
-    hard.onclick = () => {
-        cardsNumber = 9;
-    }
+function numberCards(currentLevel) {
+  switch (currentLevel) {
+    case 'simple':
+      cardWrap.classList.add('three')
+      return 3;
+      break;
+    case 'middle':
+      cardWrap.classList.add('six')
+      return 6;
+      break;
+    case 'hard':
+      cardWrap.classList.add('ten')
+      return 10;
+      break;
+  }
 }
 
-console.log(clickMenu(levelLight, levelMiddle, levelHard));
+//* Создание карты
+function createCard(currentLevelStart) {
+  for (let i = 0; i < currentLevelStart; i++) {
+    const card = document.createElement('div');
+    card.classList.add('card');
 
-//Рандомное число
-function cardRandom() {
-    return Math.floor(Math.random() * 10);
-}
-console.log(cardRandom());
+    const cardBack = document.createElement('div');
+    cardBack.classList.add('card__back');
 
-// Создание карты
-let cardWrap = document.getElementById('card-game');
-
-for (let i = 0; i < cardsNumber; i++) {
-
-    let card = document.createElement("div");
-    card.classList.add("card");
-
-    let cardFront = document.createElement('div');
+    const cardFront = document.createElement('div');
     cardFront.classList.add('card__front');
 
-    //Вставка
-    card.prepend(cardFront)
-    cardWrap.prepend(card);
+    cardWrap.append(card);
+    card.append(cardBack);
+    card.append(cardFront);
 
-    let cardBack = document.createElement('div');
-    if (5 < cardRandom()) {
-        cardBack.classList.add('card__bag')
-    } else if (5 > cardRandom()) {
-        cardBack.classList.add('card__game-over')
-    };
-
-
-    //Вставка
-    card.prepend(cardBack)
-
-    // Перезагрузка стриницы при клике
+    // *Перезагрузка стриницы при клике
     cardBack.onclick = () => {
-        location.reload()
+      location.reload()
     };
 
-    // Переворот карты при клике
+    // *Переворот карты при клике
     card.onclick = () => {
-        card.style.transform = 'rotateY(180deg)';
+      card.style.transform = 'rotateY(180deg)';
+    };
+  };
+};
+
+//*Задняя сторона карты
+function backSideOfCard(currentLevelStart) {
+  let bug = Math.floor(Math.random() * currentLevelStart);
+  const cardsBack = document.querySelectorAll('.card__back');
+
+  for (let i = 0; i < currentLevelStart; i++) {
+    if (i === bug) {
+      cardsBack[i].classList.remove('card__back');
+      cardsBack[i].classList.add('card__bug');
     }
-}
+  };
+};
 
-//Скрытие карты
-cardWrap.style.display = "none";
+function startGame() {
+  let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
+  let currentLevelStart = numberCards(currentLevel);
 
-// Скрытие всех элементов при клике на кнопку и появление карт
-document.getElementById('button').onclick = function() {
-    document.getElementById('section').hidden = true;
-    cardWrap.style.display = "flex";
-}
+  const section = document.querySelector('.main');
+  section.classList.add('none');
+  cardWrap.classList.remove('none');
+
+  createCard(currentLevelStart);
+  backSideOfCard(currentLevelStart);
+};
+
+gameStartButton.addEventListener('click', startGame);

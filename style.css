@@ -11,6 +11,10 @@
   padding-bottom: 13.889vw;
 }
 
+.main {
+  position: relative;
+}
+
 .main__title {
   color: #fff;
   font: bold 3.958vw/4.653vw robotobold, arial, helvetica, sans-serif;
@@ -24,28 +28,44 @@
   margin: 0 0 4.167vw 0;
 }
 
-.main__subtitle_little-font {
+.subtitle__little-font {
   font: 1.319vw/1.528vw roboto, arial, helvetica, sans-serif;
 }
 
-.main__level {
-  color: #fff;
-  text-decoration: none;
-  font: bold 3.472vw/4.097vw robotobold, arial, helvetica, sans-serif;
+.nav {
+  margin-bottom: 200px;
   display: flex;
   flex-direction: column;
-  padding: 0 0 1.667vw 2.778vw;
+  width: fit-content;
+}
+
+.nav__level {
   cursor: pointer;
+  position: relative;
 }
 
-.main__hard {
-  margin-bottom: 8.750vw;
+.level__active::before {
+  content: "";
+  top: 30%;
+  width: 20px;
+  height: 20px;
+  background: #d62b2e;
+  transform: rotate(45deg);
+  position: absolute;
 }
 
-.main__hard:hover,
-.main__middle:hover,
-.main__light:hover {
-  background: no-repeat left 38% url(img/Rectangle2.png);
+.level__input:hover {
+  color: #d62b2e;
+}
+
+.level__input {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font: bold 3.472vw/4.097vw robotobold, arial, helvetica, sans-serif;
+  padding-left: 40px;
 }
 
 .main__btn {
@@ -58,6 +78,7 @@
   position: relative;
   box-shadow: 1px 12px 10px 0 #00000059;
   transition: all 500ms ease;
+  cursor: pointer;
 }
 
 .main__btn:hover {
@@ -71,19 +92,19 @@
   background-size: contain;
   width: 15.139vw;
   height: 23.681vw;
-  top: 34.722vw;
+  top: 21.722vw;
   left: 55.556vw;
   transform: rotate(11.9deg);
 }
 
-.card-wrap__card_up{
+.card-wrap__card-up{
   transform: rotate(28.26deg);
   top: -1.736vw;
   left: 81%;
   transition: transform 0.3s ease-out; 
 }
 
-.card-wrap__card_up:hover{
+.card-wrap__card-up:hover{
   transform: rotate(19.26deg);
 }
 
@@ -91,9 +112,11 @@
 
 .card-game {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  flex-wrap: wrap;
 }
+
 .card {
   background-color: transparent;
   width: 218px;
@@ -104,9 +127,18 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
   cursor: pointer;
+  padding: 0 24px 24px 0;
 }
 
-.card__front, .card__back {
+.card__front:hover {
+  filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5));
+  transform: rotate(-3.08deg) translateY(-15px);
+  transition: .5s linear;
+}
+
+.card__front, 
+.card__back,
+.card__bug {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -117,12 +149,26 @@
   background: no-repeat url(img/card1.png);
 }
 
-.card__bag {
-  background: url(img/bagCard.png);
+.card__bug {
+  background: no-repeat url(img/bagCard.png);
   transform: rotateY(180deg);
 }
 
-.card__game-over {
-  background: url(img/GameOver.png);
+.card__back {
+  background: no-repeat url(img/GameOver.png);
   transform: rotateY(180deg);
+}
+
+.six {
+  width: 57%;
+  margin: 0 auto;
+}
+
+.ten {
+  width: 88%;
+  margin: 0 auto;
+}
+
+.none {
+  display: none;
 }
