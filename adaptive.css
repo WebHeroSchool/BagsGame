@@ -12,20 +12,27 @@
   }
 
 .main__subtitle {
-    font: bold 3.319vw/1vw robotobold, arial, helvetica, sans-serif;
+    font: bold 3.319vw/5vw robotobold, arial, helvetica, sans-serif;
     margin: 0;
-    padding: 2.400vw;
+    padding-bottom: 7.4vw;
   }
 
-.main__subtitle_little-font {
-    font: 3.319vw/1vw roboto, arial, helvetica, sans-serif;
-    margin-bottom: 10.667vw;
+  .nav {
+    margin: 0 auto 11.461vw auto;
   }
 
-.main__level {
-    font: bold 8.472vw/7.097vw robotobold, arial, helvetica, sans-serif;
-    align-items: center;
-    padding: 0 0 9.667vw 0;
+.nav__level {
+    padding: 0 0 2.667vw  0;
+  }
+
+  .level__input{
+    font: bold 7.472vw/4.097vw robotobold, arial, helvetica, sans-serif;
+    height: 8vw;
+    padding-left: 9.292vw;
+  }
+
+  .level__active::before {
+    top: 18%;
   }
 
 .main__btn {
@@ -50,18 +57,18 @@
     font: bold 1.919vw/1vw robotobold, arial, helvetica, sans-serif;
   }
 
-.main__subtitle_little-font {
-    font: 1.919vw/1.528vw roboto, arial, helvetica, sans-serif;
-}
-
-.main__level {
+.nav__level {
     font: bold 4.472vw/6.097vw robotobold, arial, helvetica, sans-serif;
-    padding: 0 0 2.667vw 5.778vw;
+    padding: 0 0 0.667vw 0;
   }
 
 .main__btn {
     font: bold 3.222vw/2.569vw robotobold, arial, helvetica, sans-serif;
     padding: 2.6vw 6.303vw;
+  }
+
+  .level__input {
+    padding-left: 5.292vw;
   }
 }
 

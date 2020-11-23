@@ -1,12 +1,8 @@
-
-// TODO При перевороте одной карты остальные не переворачивались 
-// todo при перевороте была смена задней стороны карты
-
 const cardWrap = document.querySelector('.card-game');
 const gameStartButton = document.querySelector('.main__btn');
 const levels = document.querySelectorAll('.nav__level');
+const section = document.querySelector('.main');
 
-// *Выбор уровня
 function chooseLevel(event) {
   levels.forEach((item) => item.classList.remove('level__active'));
   event.currentTarget.classList.add('level__active');
@@ -31,11 +27,10 @@ function numberCards(currentLevel) {
   }
 }
 
-//* Создание карты
 function createCard(currentLevelStart) {
   for (let i = 0; i < currentLevelStart; i++) {
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('card', 'card_hover');
 
     const cardBack = document.createElement('div');
     cardBack.classList.add('card__back');
@@ -46,20 +41,9 @@ function createCard(currentLevelStart) {
     cardWrap.append(card);
     card.append(cardBack);
     card.append(cardFront);
-
-    // *Перезагрузка стриницы при клике
-    cardBack.onclick = () => {
-      location.reload()
-    };
-
-    // *Переворот карты при клике
-    card.onclick = () => {
-      card.style.transform = 'rotateY(180deg)';
-    };
   };
 };
 
-//*Задняя сторона карты
 function backSideOfCard(currentLevelStart) {
   let bug = Math.floor(Math.random() * currentLevelStart);
   const cardsBack = document.querySelectorAll('.card__back');
@@ -72,16 +56,44 @@ function backSideOfCard(currentLevelStart) {
   };
 };
 
-function startGame() {
-  let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
-  let currentLevelStart = numberCards(currentLevel);
+function deleteCards() {
+  cardWrap.classList.remove('three', 'six', 'ten');
+  while (cardWrap.firstChild) {
+    cardWrap.removeChild(cardWrap.firstChild);
+  };
+};
 
-  const section = document.querySelector('.main');
+
+function flipCard() {
+  let inGame = true;
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((item) => item.addEventListener('click', () => {
+    if (inGame) {
+      item.classList.add('flipped');
+      item.classList.remove('card_hover');
+      backSideOfCard(currentLevelStart);
+      inGame = false;
+    } else {
+      section.classList.remove('none');
+      cardWrap.classList.add('none');
+      inGame = true;
+      deleteCards();
+    };
+  }));
+};
+
+let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
+let currentLevelStart = numberCards(currentLevel);
+
+function startGame() {
+  // let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
+  // let currentLevelStart = numberCards(currentLevel);
   section.classList.add('none');
   cardWrap.classList.remove('none');
 
   createCard(currentLevelStart);
-  backSideOfCard(currentLevelStart);
+  flipCard();
 };
+
 
 gameStartButton.addEventListener('click', startGame);

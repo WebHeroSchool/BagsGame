@@ -28,12 +28,8 @@
   margin: 0 0 4.167vw 0;
 }
 
-.subtitle__little-font {
-  font: 1.319vw/1.528vw roboto, arial, helvetica, sans-serif;
-}
-
 .nav {
-  margin-bottom: 200px;
+  margin-bottom: 11.461vw;
   display: flex;
   flex-direction: column;
   width: fit-content;
@@ -65,7 +61,7 @@
   cursor: pointer;
   color: #fff;
   font: bold 3.472vw/4.097vw robotobold, arial, helvetica, sans-serif;
-  padding-left: 40px;
+  padding: 0 0 1.146vw 2.292vw;
 }
 
 .main__btn {
@@ -113,24 +109,22 @@
 .card-game {
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 5.731vw;
   flex-wrap: wrap;
 }
 
 .card {
   background-color: transparent;
-  width: 218px;
-  height: 341px;
   perspective: 1000px;
   position: relative;
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
   cursor: pointer;
-  padding: 0 24px 24px 0;
+  padding: 0 16.542vw 19.542vw 0;
 }
 
-.card__front:hover {
+.card_hover:hover {
   filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5));
   transform: rotate(-3.08deg) translateY(-15px);
   transition: .5s linear;
@@ -171,4 +165,8 @@
 
 .none {
   display: none;
+}
+
+.flipped {
+  transform: rotateY(180deg);
 }
