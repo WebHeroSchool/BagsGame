@@ -141,16 +141,19 @@
 
 .card__front {
   background: no-repeat url(img/card1.png);
+  background-size: contain;
 }
 
 .card__bug {
   background: no-repeat url(img/bagCard.png);
   transform: rotateY(180deg);
+  background-size: contain;
 }
 
 .card__back {
   background: no-repeat url(img/GameOver.png);
   transform: rotateY(180deg);
+  background-size: contain;
 }
 
 .six {

@@ -6,6 +6,7 @@ const section = document.querySelector('.main');
 function chooseLevel(event) {
   levels.forEach((item) => item.classList.remove('level__active'));
   event.currentTarget.classList.add('level__active');
+  currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
 };
 
 levels.forEach((item) => item.addEventListener('click', chooseLevel));
@@ -82,12 +83,9 @@ function flipCard() {
   }));
 };
 
-let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
-let currentLevelStart = numberCards(currentLevel);
-
 function startGame() {
-  // let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
-  // let currentLevelStart = numberCards(currentLevel);
+  let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
+  let currentLevelStart = numberCards(currentLevel);
   section.classList.add('none');
   cardWrap.classList.remove('none');
 
