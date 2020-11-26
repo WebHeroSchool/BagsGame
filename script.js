@@ -9,7 +9,6 @@ function chooseLevel(event) {
   levels.forEach((item) => item.classList.remove('level__active'));
   event.currentTarget.classList.add('level__active');
   currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
-  console.log(currentLevel);
 };
 
 levels.forEach((item) => item.addEventListener('click', chooseLevel));
@@ -87,12 +86,12 @@ function flipCard() {
 };
 
 function startGame() {
+  currentLevelStart = numberCards(currentLevel);
   section.classList.add('none');
   cardWrap.classList.remove('none');
 
   createCard(currentLevelStart);
   flipCard();
-  console.log(currentLevelStart);
 };
 
 
