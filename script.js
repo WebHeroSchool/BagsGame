@@ -2,11 +2,14 @@ const cardWrap = document.querySelector('.card-game');
 const gameStartButton = document.querySelector('.main__btn');
 const levels = document.querySelectorAll('.nav__level');
 const section = document.querySelector('.main');
+let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
+let currentLevelStart = numberCards(currentLevel);
 
 function chooseLevel(event) {
   levels.forEach((item) => item.classList.remove('level__active'));
   event.currentTarget.classList.add('level__active');
   currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
+  console.log(currentLevel);
 };
 
 levels.forEach((item) => item.addEventListener('click', chooseLevel));
@@ -72,8 +75,8 @@ function flipCard() {
     if (inGame) {
       item.classList.add('flipped');
       item.classList.remove('card_hover');
-      backSideOfCard(currentLevelStart);
       inGame = false;
+      backSideOfCard(currentLevelStart);
     } else {
       section.classList.remove('none');
       cardWrap.classList.add('none');
@@ -84,13 +87,12 @@ function flipCard() {
 };
 
 function startGame() {
-  let currentLevel = document.querySelector('.level__active').firstElementChild.getAttribute('id');
-  let currentLevelStart = numberCards(currentLevel);
   section.classList.add('none');
   cardWrap.classList.remove('none');
 
   createCard(currentLevelStart);
   flipCard();
+  console.log(currentLevelStart);
 };
 
 
