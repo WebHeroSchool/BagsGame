@@ -1,8 +1,7 @@
 .body {
-  margin: 0;
-  background: no-repeat url(img/Background.png);
+  margin: 0 auto;
+  background: fixed no-repeat url(img/Background.png);
   background-size: cover;
-  height: 100vh;
 }
 
 .wrapper {
