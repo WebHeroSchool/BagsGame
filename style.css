@@ -2,6 +2,9 @@
   margin: 0 auto;
   background: fixed no-repeat url(img/Background.png);
   background-size: cover;
+  max-height: 100vh;
+  overflow-y: hidden;
+}
 }
 
 .wrapper {
